@@ -11,7 +11,7 @@ If the thunk you yielded in a [Co](https://github.com/visionmedia/co) wrapped ge
       }
     })()
 
-since request's callback will be called with 3 arguments: `function (error, response, body)`.
+`res` here is an array contain response object and body since request's callback will be called with 3 arguments: `function (error, response, body)`.
 
 It's annoying that every time you deal with that kind of thunk you write code like
 
@@ -22,7 +22,7 @@ or:
 
     var res = (yield get(url))[0];
 
-So I write this module. If you are sure that you always only need one of the arguments, you can use co-nth-arg to wrap your thunkified function:
+So I write this module. If you are sure that you always need only one of the arguments, you can use co-nth-arg to wrap your thunkified function:
 
     var co = require('co');
     var nth = require('co-nth-arg');
