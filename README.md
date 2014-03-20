@@ -1,7 +1,7 @@
 co-nth-arg
 ==========
 
-If the thunk you yielded in [Co](https://github.com/visionmedia/co) a wrapped generator function call the callback with more than 2 arguments, it will be returned as an array by Co. For example, below is an example from co/examples/requests.js:
+If the thunk you yielded in a [Co](https://github.com/visionmedia/co) wrapped generator function call the callback with more than 2 arguments, it will be returned as an array by Co. For example, below is an example from [co/examples/requests.js](https://github.com/visionmedia/co/blob/master/examples/requests.js):
 
     co(function *(){
       for (var i = 0; i < urls.length; i++) {
