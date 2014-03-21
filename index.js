@@ -27,5 +27,5 @@ exports.second = thunkNthArg.bind(null, 2);
 
 exports.thunkify = function (n, fn) {
   if ('number' == typeof n) return thunkNthArg(n, thunkify(fn));
-  else return thunkify(fn);
+  else if ('function' == typeof n) return thunkify(n);
 }

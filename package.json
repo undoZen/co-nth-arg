@@ -1,6 +1,6 @@
 {
   "name": "co-nth-arg",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "pick the nth argument in callback of a thunk function to avoid array result yielded from co.",
   "main": "index.js",
   "scripts": {
