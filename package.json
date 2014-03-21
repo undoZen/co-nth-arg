@@ -1,6 +1,6 @@
 {
   "name": "co-nth-arg",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "pick the nth argument in callback of a thunk function to avoid array result yielded from co.",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,9 @@
     "url": "https://github.com/undoZen/co-nth-arg/issues"
   },
   "homepage": "https://github.com/undoZen/co-nth-arg",
+  "dependencies": {
+    "thunkify": ">=0.0.1"
+  },
   "devDependencies": {
     "co": "^3.0.5",
     "thunkify": "0.0.1",

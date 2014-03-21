@@ -1,6 +1,9 @@
 co-nth-arg
 ==========
 
+v0.1.0 release
+--------------
+
 If the thunk you yielded in a [Co](https://github.com/visionmedia/co) wrapped generator function call the callback with more than 2 arguments, it will be returned as an array by Co. For example, below is an example from [co/examples/requests.js](https://github.com/visionmedia/co/blob/master/examples/requests.js):
 
     co(function *(){
@@ -40,3 +43,13 @@ So I write this module. If you are sure that you always need only one of the arg
       var bingBody = yield getBody('http://bing.com');
       console.log(bingBody.length);
     })();
+
+v0.2.0 update
+-------------
+
+Now support zeroth argument to deal with functions like fs.exists. and add `nth.thunkify(n, fn)` method:
+
+    var fs = require('fs');
+    var exists = nth(0, thunkify(fs.exists)); // or nth.zeroth(thunkify(fs.exists)) or nth.thunkify(0, fs.exists);
+
+If you don't specify the `n`, this method will delegate `fn` to original `thunkify()`, so you can use nth.thunkify to replace the original one.

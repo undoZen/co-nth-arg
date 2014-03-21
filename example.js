@@ -1,6 +1,7 @@
+var fs = require('fs');
 var co = require('co');
 var thunkify = require('thunkify');
-var nth = require('./');
+var nth = require('./index.js');
 
 var asyncMath = function (list, cb) {
   setTimeout(function () {
@@ -9,6 +10,13 @@ var asyncMath = function (list, cb) {
 };
 
 var show = function () { console.log(arguments); };
+
+var exists = nth(0, thunkify(fs.exists)); // or nth.zeroth(thunkify(fs.exists)) or nth.thunkify(0, fs.exists);
+
+co(function *() {
+  console.log(yield exists('./package.json'));
+  console.log(yield exists('non-exists'));
+})();
 
 var tam = thunkify(asyncMath);
 var ttam = nth(1, tam);

@@ -1,6 +1,9 @@
+'use strict';
+var thunkify = require('thunkify')
+
 function nth(n, fn) {
   return function (err) {
-    return fn.call(this, err, arguments[n]);
+    return fn.call(this, n ? err : null, arguments[n]);
   }
 }
 
@@ -18,5 +21,11 @@ function thunkNthArg(n, fn) {
 }
 
 exports = module.exports = thunkNthArg;
+exports.zeroth = thunkNthArg.bind(null, 0);
 exports.first = thunkNthArg.bind(null, 1);
 exports.second = thunkNthArg.bind(null, 2);
+
+exports.thunkify = function (n, fn) {
+  if ('number' == typeof n) return thunkNthArg(n, thunkify(fn));
+  else return thunkify(fn);
+}
